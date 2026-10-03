@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Usage Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <p class="eyebrow">PERSONAL DATA TOOL</p>
+        <h1>Internet Usage Tracker</h1>
+        <p class="subtitle">Suivez votre consommation de données et estimez votre budget quotidien.</p>
+      </div>
+      <button id="resetBtn" class="secondary">Réinitialiser</button>
+    </header>
+
+    <section class="grid">
+      <article class="card settings">
+        <h2>Votre forfait</h2>
+        <div class="form-grid">
+          <label>Volume total (Go)
+            <input id="planSize" type="number" min="0.1" step="0.1" value="20">
+          </label>
+          <label>Durée (jours)
+            <input id="planDays" type="number" min="1" step="1" value="30">
+          </label>
+          <label>Jour actuel
+            <input id="currentDay" type="number" min="1" step="1" value="1">
+          </label>
+          <label>Consommation totale (Go)
+            <input id="usedData" type="number" min="0" step="0.01" value="0">
+          </label>
+        </div>
+        <button id="calculateBtn" class="primary">Calculer</button>
+      </article>
+
+      <article class="card summary">
+        <h2>Résumé</h2>
+        <div class="stats">
+          <div><span>Restant</span><strong id="remaining">20 Go</strong></div>
+          <div><span>Budget quotidien</span><strong id="dailyBudget">0,67 Go</strong></div>
+          <div><span>Moyenne actuelle</span><strong id="dailyAverage">0 Go/j</strong></div>
+          <div><span>Jours restants</span><strong id="daysRemaining">30</strong></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Consommation</span><span id="percent">0%</span></div>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+        <p id="status" class="status neutral">Entrez votre consommation pour commencer.</p>
+      </article>
+    </section>
+
+    <section class="card history-card">
+      <div class="section-title">
+        <div>
+          <h2>Journal quotidien</h2>
+          <p>Ajoutez votre consommation pour obtenir une estimation plus précise.</p>
+        </div>
+      </div>
+      <form id="entryForm" class="entry-form">
+        <input id="entryDay" type="number" min="1" placeholder="Jour" required>
+        <input id="entryUsage" type="number" min="0" step="0.01" placeholder="Go consommés" required>
+        <button class="primary" type="submit">Ajouter</button>
+      </form>
+      <div id="entries" class="entries"></div>
+    </section>
+
+    <footer>
+      <span>Internet Usage Tracker</span>
+      <span>Vanilla JavaScript · LocalStorage · Responsive UI</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
